@@ -78,7 +78,7 @@ int main(){
         clue=""; 
     }
 
-    cout<<"The number was "<<number<<"\nWould you like to play again?\n";
+    cout<<"The number was "<<number<<".";
 
     return 0;
 }
