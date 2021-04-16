@@ -6,6 +6,8 @@
  * 
  * @copyright Copyright (c) 2021
  * 
+ * https://play.google.com/store/apps/details?id=codemy.programming.ideas
+ * 
  * The Atbash cipher is a substitution cipher with a specific key where
  *  the letters of the alphabet are reversed. i.e. all 'A's are
  *  replaced with 'Z's, all 'B's are replaced with 'Y's, and so on. It
@@ -38,12 +40,13 @@ int main(){
     getline(cin, input);
 
     for(int i=0; i<input.length(); i++){
-
-        if(islower(input[i])){
-            input[i] = 'z' - input[i] + 'a';
-        }
-        else{
-            input[i] = 'Z' - input[i] + 'A';
+        if('a'<=input[i] && input[i]<='z' || 'A'<=input[i] && input[i]<='Z' || '0'>=input[i] && input[i]>='9'){
+            if(islower(input[i])){
+                input[i] = 'z' - input[i] + 'a';
+            }
+            else{
+                input[i] = 'Z' - input[i] + 'A';
+            }
         }
 
     }
