@@ -6,6 +6,8 @@
  * 
  * @copyright Copyright (c) 2021
  * 
+ * https://play.google.com/store/apps/details?id=codemy.programming.ideas
+ * 
  * The simple substitution cipher is a cipher that has been in use for
  *  hundreds of years (an excellent history is given in Simon Singh's
  *  'The Code Book'). It basically consists of substituting  every
@@ -47,23 +49,27 @@ int main(){
 
     cout<<"Enter the message to be translated:\n";
     getline(cin, input);
-    cout<<"Enter the cipher alphabet (26 letters only):\n";
+    cout<<"Enter the cipher alphabet (26 letters only):\nabcdefghijklmnopqrstuvwxyz\n";
     getline(cin, key);
-
-    for(int i=0; i<input.length(); i++){
-
-        if(islower(input[i])){
-            getKey = input[i]-'a';
-            input[i] = key[getKey];
-        }
-        else{
-            getKey = input[i]-'A';
-            input[i] = toupper(key[getKey]);
-        }
-
+    while(key.length()!=26){
+        cout<<"Try again (26 letters only):\nabcdefghijklmnopqrstuvwxyz\n";
+        getline(cin, key);
     }
 
-    cout<<input;
-    
+    for(int i=0; i<input.length(); i++){
+        if('a'<=input[i] && input[i]<='z' || 'A'<=input[i] && input[i]<='Z' || '0'>=input[i] && input[i]>='9'){
+            if(islower(input[i])){
+                getKey = input[i]-'a';
+                input[i] = key[getKey];
+            }
+            else{
+                getKey = input[i]-'A';
+                input[i] = toupper(key[getKey]);
+            }
+        }
+    }
+
+    cout<<input;   
+
     return 0;
 }
